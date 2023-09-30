@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "466225055576",
+    "project_id": "fir-chatapp-692c1",
+    "storage_bucket": "fir-chatapp-692c1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:466225055576:android:f2a2e090fa05b42f21c72d",
+        "android_client_info": {
+          "package_name": "com.encureit.firebasechatapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB0Yt806GGqyMoftIavan-wUJqnOBBmIbY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
