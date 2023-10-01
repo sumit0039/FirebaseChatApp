@@ -1,10 +1,12 @@
 package com.encureit.firebasechatapp.utils;
 
+import com.google.firebase.Timestamp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 public class FirebaseUtils {
@@ -37,17 +39,7 @@ public class FirebaseUtils {
         return getChatRoomReference(chatroomId).collection("chats");
     }
 
-    public static CollectionReference allChatroomCollectionReference(){
-        return FirebaseFirestore.getInstance().collection("chatrooms");
-    }
 
-    public static DocumentReference getOtherUserFromChatroom(List<String> userIds){
-        if (userIds.get(0).equals(FirebaseUtils.currentUserId())){
-            return allChatroomCollectionReference().document(userIds.get(1));
-        }else {
-            return allChatroomCollectionReference().document(userIds.get(0));
-        }
-    }
 
     public static String getChatroomId(String userId1, String userId2){
         if (userId1.hashCode()<userId2.hashCode()){
@@ -55,5 +47,22 @@ public class FirebaseUtils {
         }else {
             return userId2+"_"+userId1;
         }
+    }
+
+    public static CollectionReference allChatroomCollectionReference(){
+        return FirebaseFirestore.getInstance().collection("chatrooms");
+    }
+
+    public static DocumentReference getOtherUserFromChatroom(List<String> userIds){
+        if (userIds.get(0).equals(FirebaseUtils.currentUserId())){
+            return allUserCollectionReference().document(userIds.get(1));
+        }else {
+            return allUserCollectionReference().document(userIds.get(0));
+        }
+    }
+
+    public static String timestampToString(Timestamp timestamp){
+        return new SimpleDateFormat("HH:MM").format(timestamp.toDate());
+
     }
 }

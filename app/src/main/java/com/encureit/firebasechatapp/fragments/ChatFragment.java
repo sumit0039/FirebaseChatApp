@@ -30,10 +30,10 @@ public class ChatFragment extends Fragment {
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentChatBinding.inflate(getLayoutInflater());
         setupSearchRV();
+
         return binding.getRoot();
     }
 
@@ -67,6 +67,6 @@ public class ChatFragment extends Fragment {
     public void onResume() {
         super.onResume();
         if (adapter != null)
-            adapter.startListening();
+            adapter.notifyDataSetChanged();
     }
 }
